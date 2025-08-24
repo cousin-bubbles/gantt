@@ -1,24 +1,15 @@
-# Simple Gantt
+# Simple Gantt — MVP
 
-A minimal web-based Gantt chart app for personal and small team project management by S.
+Minimal scaffold for the Simple Gantt MVP.
 
-## Features
+Quickstart
+1. npm install
+2. npm run dev
 
-- Task creation, editing, deletion
-- Basic Gantt chart visualization
-- Local data persistence
-- Responsive UI
+Features included in this scaffold:
+- React + Vite skeleton
+- Task model with title, start, end, percentComplete
+- Local persistence to localStorage
+- Basic Gantt renderer placeholder
 
-## Getting Started
-
-1. Clone the repo
-2. Run `npm install`
-3. Run `npm start` to launch the app
-
-## Roadmap
-
-See [docs/roadmap.md](docs/roadmap.md) for feature plans.
-
-## License
-
-MIT
+See docs/roadmap.md for the full roadmap.
