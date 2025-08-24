@@ -1,0 +1,1 @@
+{"name": "simple_gantt","version": "0.1.0","private": true,"description": "A minimal web-based Gantt chart app.","main": "src/App.js","scripts": {"start": "vite","build": "vite build","test": "jest"},"dependencies": {"react": "^18.2.0","react-dom": "^18.2.0"},"devDependencies": {"vite": "^4.0.0","jest": "^29.0.0","@testing-library/react": "^14.0.0"}}
