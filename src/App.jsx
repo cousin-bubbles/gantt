@@ -34,6 +34,7 @@ function reducer(state, action) {
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
+  const [selectedTaskId, setSelectedTaskId] = React.useState(null)
 
   useEffect(() => {
     const raw = localStorage.getItem(STORAGE_KEY)
@@ -51,11 +52,31 @@ function App() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state.project))
   }, [state.project])
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Handle keyboard shortcuts
+      if (e.key === 'n' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault()
+        addTask()
+      } else if (e.key === 'Delete' && selectedTaskId) {
+        e.preventDefault()
+        dispatch({ type: 'delete-task', id: selectedTaskId })
+        setSelectedTaskId(null)
+      } else if (e.key === 'Escape') {
+        setSelectedTaskId(null)
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [selectedTaskId])
+
   function addTask() {
     const id = 'task-' + Date.now()
     const today = new Date().toISOString().slice(0,10)
     const task = { id, title: 'New Task', start: today, end: today, percentComplete: 0 }
     dispatch({ type: 'add-task', task })
+    setSelectedTaskId(id)
   }
 
   return (
@@ -63,8 +84,22 @@ function App() {
       <header>
         <h1>Simple Gantt — MVP</h1>
         <div className="controls">
-          <button onClick={addTask}>Add Task</button>
-          <button onClick={() => { localStorage.removeItem(STORAGE_KEY); dispatch({ type: 'load', project: initialState.project }) }}>Reset</button>
+          <button 
+            onClick={addTask}
+            title="Add new task (Ctrl+N)"
+          >
+            Add Task
+          </button>
+          <button 
+            onClick={() => { 
+              localStorage.removeItem(STORAGE_KEY)
+              dispatch({ type: 'load', project: initialState.project })
+              setSelectedTaskId(null)
+            }}
+            title="Reset all data"
+          >
+            Reset
+          </button>
         </div>
       </header>
 
@@ -73,20 +108,70 @@ function App() {
           <h2>Tasks</h2>
           <ul>
             {state.project.tasks.map(task => (
-              <li key={task.id}>
-                <input value={task.title} onChange={e => dispatch({ type: 'update-task', task: { ...task, title: e.target.value } })} />
+              <li 
+                key={task.id}
+                className={selectedTaskId === task.id ? 'selected' : ''}
+                onClick={() => setSelectedTaskId(task.id)}
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    setSelectedTaskId(task.id)
+                  } else if (e.key === 'Delete') {
+                    e.preventDefault()
+                    dispatch({ type: 'delete-task', id: task.id })
+                    setSelectedTaskId(null)
+                  }
+                }}
+                role="button"
+                aria-label={`Task: ${task.title}`}
+              >
+                <input 
+                  value={task.title} 
+                  onChange={e => dispatch({ type: 'update-task', task: { ...task, title: e.target.value } })}
+                  placeholder="Task name"
+                  aria-label="Task name"
+                />
                 <div className="dates">
-                  <input type="date" value={task.start} onChange={e => dispatch({ type: 'update-task', task: { ...task, start: e.target.value } })} />
-                  <input type="date" value={task.end} onChange={e => dispatch({ type: 'update-task', task: { ...task, end: e.target.value } })} />
-                  <button onClick={() => dispatch({ type: 'delete-task', id: task.id })}>Delete</button>
+                  <input 
+                    type="date" 
+                    value={task.start} 
+                    onChange={e => dispatch({ type: 'update-task', task: { ...task, start: e.target.value } })}
+                    aria-label="Start date"
+                  />
+                  <input 
+                    type="date" 
+                    value={task.end} 
+                    onChange={e => dispatch({ type: 'update-task', task: { ...task, end: e.target.value } })}
+                    aria-label="End date"
+                  />
+                  <button 
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      dispatch({ type: 'delete-task', id: task.id })
+                      setSelectedTaskId(null)
+                    }}
+                    title="Delete task (Delete key)"
+                    aria-label={`Delete task ${task.title}`}
+                  >
+                    Delete
+                  </button>
                 </div>
               </li>
             ))}
           </ul>
+          {state.project.tasks.length === 0 && (
+            <p className="empty">No tasks yet. Click "Add Task" to get started!</p>
+          )}
         </aside>
 
         <section className="gantt-area">
-          <Gantt tasks={state.project.tasks} onUpdate={task => dispatch({ type: 'update-task', task })} />
+          <Gantt 
+            tasks={state.project.tasks} 
+            onUpdate={task => dispatch({ type: 'update-task', task })}
+            selectedTaskId={selectedTaskId}
+            onSelectTask={setSelectedTaskId}
+          />
         </section>
       </main>
     </div>
