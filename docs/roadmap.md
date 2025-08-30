@@ -2,7 +2,7 @@
 
 Version: 0.2  
 Last updated: 2025-08-24  
-Author: cousin-bubbles
+Author: Simple Gantt Team
 
 ## Conversation excerpt — context
 - User requested a new repository and a minimal scaffold for "Simple Gantt".
@@ -116,10 +116,12 @@ Milestone 4 — Scheduling Intelligence
 
 ## Next steps
 1. Confirm milestone dates and owners.
-2. Finalize the MVP acceptance criteria and create issues for each deliverable.
+2. Finalize the MVP acceptance criteria and create issues for each deliverable using the [requirement template](../.github/ISSUE_TEMPLATE/requirement.md).
 3. Scaffold and implement MVP components (task model, Gantt renderer, persistence).
 4. Run a short usability pass with representative users and iterate.
 
-Change log
+For detailed contribution guidelines, see [CONTRIBUTING.md](../CONTRIBUTING.md).
+
+## Change log
 - v0.1 — Initial informal roadmap created from conversation notes.
 - v0.2 — Professionalized structure, added goals, acceptance criteria, risks, and technical recommendations.
