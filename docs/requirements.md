@@ -135,25 +135,24 @@ Author: Simple Gantt Team
 
 ### Requirements to Implementation Mapping
 
-| Requirement ID | Issue | PR | Test File | Status |
-|---------------|-------|----|-----------|---------| 
-| NFR-001       | #7    | TBD| N/A       | In Progress |
-| REQ-001       | TBD   | TBD| TBD       | Draft   |
-| REQ-002       | TBD   | TBD| TBD       | Draft   |
-| REQ-003       | TBD   | TBD| TBD       | Draft   |
-| REQ-004       | TBD   | TBD| TBD       | Draft   |
-| REQ-005       | TBD   | TBD| TBD       | Draft   |
-| NFR-001       | TBD   | TBD| TBD       | Draft   |
-| NFR-002       | TBD   | TBD| TBD       | Draft   |
-| NFR-003       | TBD   | TBD| TBD       | Draft   |
-| NFR-004       | TBD   | TBD| TBD       | Draft   |
-| NFR-005       | TBD   | TBD| TBD       | Draft   |
-| NFR-006       | TBD   | TBD| TBD       | Draft   |
-| NFR-007       | TBD   | TBD| TBD       | Draft   |
-| NFR-008       | TBD   | TBD| TBD       | Draft   |
-| NFR-009       | TBD   | TBD| TBD       | Draft   |
-| NFR-010       | TBD   | TBD| TBD       | Draft   |
-| NFR-011       | #9    | TBD| N/A       | In Progress |
+| Requirement ID | Title | Level | Parent(s) | Status | Implementation Links |
+|---------------|-------|-------|-----------|--------|---------------------|
+| REQ-001       | Task Creation | LLR | REQ-001 | Draft   | TBD |
+| REQ-002       | Task Editing | LLR | REQ-001 | Draft   | TBD |
+| REQ-003       | Task Deletion | LLR | REQ-001 | Draft   | TBD |
+| REQ-004       | Timeline Visualization | HLR | - | Draft   | TBD |
+| REQ-005       | Data Persistence | HLR | - | Draft   | TBD |
+| NFR-001       | Initial Load Performance | LLR | NFR-002 | In Progress | TBD |
+| NFR-002       | Performance Requirements | HLR | - | Draft   | TBD |
+| NFR-003       | Keyboard Navigation | LLR | NFR-004 | Draft   | TBD |
+| NFR-004       | Usability Requirements | HLR | - | Draft   | TBD |
+| NFR-005       | Screen Reader Compatibility | LLR | NFR-006 | Draft   | TBD |
+| NFR-006       | Accessibility Requirements | HLR | - | Draft   | TBD |
+| NFR-007       | Storage Error Handling | LLR | NFR-008 | Draft   | TBD |
+| NFR-008       | Reliability Requirements | HLR | - | Draft   | TBD |
+| NFR-009       | React Pattern Compliance | LLR | NFR-010 | Draft   | TBD |
+| NFR-010       | Maintainability Requirements | HLR | - | Draft   | TBD |
+| NFR-011       | AI Coding Rules | LLR | NFR-010 | In Progress | TBD |
 
 ### Requirement Status Definitions
 - **Draft**: Requirement identified but not yet implemented
@@ -161,6 +160,67 @@ Author: Simple Gantt Team
 - **Testing**: Implementation complete, testing in progress
 - **Complete**: Fully implemented and tested
 - **Blocked**: Implementation blocked by external dependency
+
+### Level Definitions
+- **HLR (High-Level Requirement)**: Top-level business or technical requirements that define major system capabilities
+- **LLR (Low-Level Requirement)**: Detailed requirements that implement or decompose high-level requirements
+
+### Historical Aliases
+*This section maintains mapping for requirement IDs that existed before the strategy refactoring*
+
+| Previous Issue | Historical ID | Current Requirement ID | Notes |
+|---------------|---------------|----------------------|-------|
+| #7            | NFR-001       | NFR-001              | Performance requirement - issue title to be updated |
+| #9            | NFR-011       | NFR-011              | AI coding rules - issue title to be updated |
+
+### Migration Plan
+**Implementation of New Requirement ID Strategy**
+
+1. **Documentation Updates** ✅
+   - Remove Issue and PR columns from traceability tables
+   - Add Level, Parent(s), and Implementation Links columns
+   - Update requirement definitions and workflows
+
+2. **Issue Management** (To be completed)
+   - Rename existing issues to remove requirement IDs from titles:
+     - Issue #7: Remove "[NFR-001]" prefix from title
+     - Issue #9: Remove "[NFR-011]" prefix from title
+   - Update issue template to remove ID assignment from title format
+   - Update issue template to reference requirement IDs in body only
+
+3. **Documentation Cleanup** (To be completed)
+   - Remove requirement ID references from CONTRIBUTING.md workflows
+   - Update all references to new strategy in project documentation
+
+### Common Pitfalls to Avoid
+**Important guidelines for maintainers and contributors:**
+
+1. **❌ DO NOT assign requirement IDs to GitHub issues**
+   - Issues are implementation tracking, not requirement definition
+   - Requirement IDs exist only in docs/requirements.md
+
+2. **❌ DO NOT include requirement IDs in issue titles**
+   - Use descriptive, user-focused titles instead
+   - Reference requirement IDs in issue body if needed
+
+3. **❌ DO NOT list issues or their statuses in documentation tables**
+   - Issues are transient; requirements are persistent
+   - Use Implementation Links column for optional references only
+
+4. **❌ DO NOT create duplicate requirement IDs**
+   - All IDs are managed centrally in docs/requirements.md
+   - Check existing IDs before assigning new ones
+
+5. **❌ DO NOT assume issue status equals requirement status**
+   - Multiple issues may implement one requirement
+   - One issue may touch multiple requirements
+   - Requirements status is managed independently in documentation
+
+**✅ Best Practices:**
+- Reference requirement IDs in issue descriptions when relevant
+- Update requirement status in docs/requirements.md when implementation milestones are reached
+- Use Implementation Links column sparingly for major code references (files, PRs)
+- Maintain parent/child relationships between HLRs and LLRs in documentation only
 
 ---
 
@@ -211,22 +271,28 @@ Author: Simple Gantt Team
 ## 7. Workflow in GitHub
 
 ### Issue Creation Process
-1. **Create Issue**: Use requirement issue template (if available)
+1. **Create Issue**: Use requirement issue template for consistency
 2. **Add Labels**: Apply appropriate labels from the scheme above
-3. **Link Requirements**: Reference requirement ID in issue title or description
+3. **Reference Requirements**: Optionally reference relevant requirement IDs in issue description/body (NOT in title)
 4. **Assign Milestone**: Link to appropriate project milestone
 
 ### Pull Request Process
-1. **Reference Requirements**: Include requirement ID in PR title or description
-2. **Link Issues**: Use "Closes #issue-number" to auto-link
-3. **Update Traceability**: Update the traceability table when PR is merged
-4. **Test References**: Ensure tests reference the requirement ID they validate
+1. **Descriptive Titles**: Use clear, descriptive PR titles focused on implementation changes
+2. **Link Issues**: Use "Closes #issue-number" to auto-link related issues
+3. **Reference Requirements**: Optionally reference requirement IDs in PR description when relevant
+4. **Update Documentation**: Update requirement status in docs/requirements.md when major milestones are reached
 
-### Requirement Updates
-1. **Version Control**: Track requirement changes through Git commits
-2. **Impact Analysis**: Assess impact of requirement changes on existing implementation
-3. **Stakeholder Review**: Get approval for significant requirement modifications
-4. **Documentation**: Update both requirements.md and any affected design documents
+### Requirement Management
+1. **Requirement IDs**: Managed exclusively in docs/requirements.md
+2. **Status Updates**: Update requirement status in documentation based on implementation progress
+3. **Traceability**: Use Implementation Links column for optional references to key code artifacts
+4. **Version Control**: Track requirement changes through Git commits to docs/requirements.md
+
+### Issue vs Requirement Relationship
+- **Issues**: Track implementation tasks, bugs, and development work
+- **Requirements**: Define what the system must do, managed in documentation
+- **Separation**: Issues may reference requirements, but requirement IDs are not assigned to issues
+- **Status Independence**: Issue completion does not automatically update requirement status
 
 ---
 

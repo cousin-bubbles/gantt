@@ -1,16 +1,19 @@
 ---
 name: Requirement
 about: Create a new functional or non-functional requirement
-title: '[REQ/NFR-XXX] Requirement Title'
+title: 'Requirement Title'
 labels: ['documentation']
 assignees: ''
 ---
 
 ## Requirement Information
 
-**Requirement ID**: REQ/NFR-XXX (assign next available ID)
 **Type**: [ ] Functional [ ] Non-Functional
 **Priority**: [ ] P1 (Critical) [ ] P2 (Important) [ ] P3 (Nice to Have)
+
+## Related Requirements
+
+**References**: [Optional - list any requirement IDs from docs/requirements.md that this relates to]
 
 ## Requirement Statement
 
@@ -55,7 +58,7 @@ assignees: ''
 - [ ] Documentation updated
 - [ ] Tests written and passing
 - [ ] Code reviewed and merged
-- [ ] Traceability table updated in docs/requirements.md
+- [ ] Requirement status updated in docs/requirements.md (if applicable)
 
 ## Additional Context
 

@@ -33,7 +33,7 @@ Thank you for your interest in contributing to Simple Gantt! This document provi
 We use structured requirement templates for consistency:
 
 1. **Use the Requirement Template**: Create issues using `.github/ISSUE_TEMPLATE/requirement.md`
-2. **Include Requirement ID**: Use format `[NFR-XXX]` or `[REQ-XXX] Title` based on requirement type 
+2. **Descriptive Titles**: Use clear, descriptive titles focused on the functionality or problem
 3. **Apply Labels**: Use our [labeling scheme](docs/requirements.md#labeling-scheme)
 4. **Link Dependencies**: Reference related requirements and blocking issues
 
@@ -41,22 +41,23 @@ We use structured requirement templates for consistency:
 
 1. **Create Feature Branch**
    ```bash
-   git checkout -b feature/req-xxx-description
+   git checkout -b feature/descriptive-name
    ```
 
 2. **Make Changes**
    - Follow existing code patterns and conventions
    - Write clear, focused commits
-   - Include requirement ID in commit messages when applicable
+   - Reference relevant requirement IDs in commit messages when applicable
 
 3. **Update Documentation**
    - Update relevant documentation files
    - Add or update tests if applicable
-   - Update the traceability table in `docs/requirements.md`
+   - Update requirement status in `docs/requirements.md` if major milestones are reached
 
 4. **Submit Pull Request**
-   - Use descriptive PR title with requirement ID
+   - Use descriptive PR title focused on the changes made
    - Link to related issues using "Closes #issue-number"
+   - Reference relevant requirement IDs in PR description when applicable
    - Ensure CI checks pass
    - Request review from maintainers
 
@@ -89,11 +90,12 @@ All contributors must follow the documented AI coding best practices outlined in
 
 Use clear, descriptive commit messages:
 ```
-[REQ-001] Add task creation functionality
+feat: Add task creation functionality
 
 - Implement add task button and form handling
 - Update task list to display new tasks
 - Add localStorage persistence for new tasks
+- Relates to REQ-001 task management requirements
 ```
 
 ## Documentation Standards
@@ -105,7 +107,7 @@ When contributing requirements or design changes:
 - Follow the structure in `docs/requirements.md`
 - Use RFC 2119 terminology (SHALL, SHOULD, MAY)
 - Include clear acceptance criteria
-- Update traceability tables when implementing features
+- Update requirement status in docs/requirements.md when implementing features
 
 ### Code Documentation
 
@@ -129,7 +131,7 @@ npm run build
 
 - Write tests for new functionality when test infrastructure exists
 - Focus on critical user paths and edge cases
-- Include requirement ID in test descriptions for traceability
+- Reference relevant requirement IDs in test descriptions for traceability when applicable
 
 ## Review Process
 
