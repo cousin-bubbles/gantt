@@ -62,6 +62,16 @@ We use structured requirement templates for consistency:
 
 ## Code Standards
 
+### AI Coding Best Practices
+
+All contributors must follow the documented AI coding best practices outlined in [AI_CODING_RULES.md](AI_CODING_RULES.md). Key requirements include:
+
+- **Responsible AI Development**: Ensure transparency, fairness, and privacy in all AI-assisted development
+- **Code Quality**: Follow simplicity-first approach with clear, readable code
+- **Documentation**: Document complex logic and AI-assisted decisions
+- **Security**: Protect user data and follow secure coding practices
+- **Review Process**: All AI-assisted code requires peer review
+
 ### React/JavaScript Guidelines
 
 - Use modern React patterns (hooks, functional components)
@@ -129,6 +139,7 @@ npm run build
 - **Functionality**: Changes should work as intended and not break existing features
 - **Documentation**: Updates should include relevant documentation changes
 - **Consistency**: Follow established patterns and conventions
+- **AI Coding Compliance**: Verify adherence to [AI_CODING_RULES.md](AI_CODING_RULES.md) for AI-assisted development
 
 ### Approval Process
 

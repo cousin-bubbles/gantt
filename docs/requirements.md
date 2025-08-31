@@ -97,6 +97,7 @@ Author: Simple Gantt Team
 ### Maintainability
 - **NFR-009**: The system SHALL use modern React patterns and maintain component modularity for easy feature additions.
 - **NFR-010**: The system SHALL include clear documentation for development setup and architecture decisions.
+- **NFR-011**: The system SHALL provide and maintain documented AI coding rules and best practices for all contributors so that code quality, consistency, and responsible AI development are ensured across the project.
 
 ---
 
@@ -152,6 +153,7 @@ Author: Simple Gantt Team
 | NFR-008       | TBD   | TBD| TBD       | Draft   |
 | NFR-009       | TBD   | TBD| TBD       | Draft   |
 | NFR-010       | TBD   | TBD| TBD       | Draft   |
+| NFR-011       | #9    | TBD| N/A       | In Progress |
 
 ### Requirement Status Definitions
 - **Draft**: Requirement identified but not yet implemented
