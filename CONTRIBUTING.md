@@ -33,7 +33,7 @@ Thank you for your interest in contributing to Simple Gantt! This document provi
 We use structured requirement templates for consistency:
 
 1. **Use the Requirement Template**: Create issues using `.github/ISSUE_TEMPLATE/requirement.md`
-2. **Include Requirement ID**: Use format `[REQ/NFR-XXX] Title` 
+2. **Include Requirement ID**: Use format `[NFR-XXX]` or `[REQ-XXX] Title` based on requirement type 
 3. **Apply Labels**: Use our [labeling scheme](docs/requirements.md#labeling-scheme)
 4. **Link Dependencies**: Reference related requirements and blocking issues
 

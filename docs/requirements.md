@@ -136,7 +136,7 @@ Author: Simple Gantt Team
 
 | Requirement ID | Issue | PR | Test File | Status |
 |---------------|-------|----|-----------|---------| 
-| REQ/NFR-001   | #7    | TBD| N/A       | In Progress |
+| NFR-001       | #7    | TBD| N/A       | In Progress |
 | REQ-001       | TBD   | TBD| TBD       | Draft   |
 | REQ-002       | TBD   | TBD| TBD       | Draft   |
 | REQ-003       | TBD   | TBD| TBD       | Draft   |
