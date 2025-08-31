@@ -137,11 +137,12 @@ Author: Simple Gantt Team
 
 | Requirement ID | Title | Level | Parent(s) | Status | Implementation Links |
 |---------------|-------|-------|-----------|--------|---------------------|
-| REQ-001       | Task Creation | LLR | REQ-001 | Draft   | TBD |
-| REQ-002       | Task Editing | LLR | REQ-001 | Draft   | TBD |
-| REQ-003       | Task Deletion | LLR | REQ-001 | Draft   | TBD |
-| REQ-004       | Timeline Visualization | HLR | - | Draft   | TBD |
+| REQ-001       | Task Creation | LLR | REQ-004 | Draft   | TBD |
+| REQ-002       | Task Editing | LLR | REQ-004 | Draft   | TBD |
+| REQ-003       | Task Deletion | LLR | REQ-004 | Draft   | TBD |
+| REQ-004       | Task Management | HLR | - | Draft   | TBD |
 | REQ-005       | Data Persistence | HLR | - | Draft   | TBD |
+| REQ-006       | Timeline Visualization | HLR | - | Draft   | TBD |
 | NFR-001       | Initial Load Performance | LLR | NFR-002 | In Progress | TBD |
 | NFR-002       | Performance Requirements | HLR | - | Draft   | TBD |
 | NFR-003       | Keyboard Navigation | LLR | NFR-004 | Draft   | TBD |
