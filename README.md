@@ -1,89 +1,66 @@
-# Simple Gantt — MVP
+# Simple Gantt
 
-A lightweight, browser-based Gantt chart application for personal and small-team project planning.
+A lightweight, browser-based Gantt chart application for project planning and timeline visualization.
 
-## Project Overview
+## Overview
 
-Simple Gantt is designed to provide a clean, efficient way to visualize project timelines without the complexity of enterprise tools. Built with React and focusing on local data storage, it enables quick project planning without requiring server infrastructure or cloud dependencies.
+Simple Gantt provides an efficient way to visualize project timelines without enterprise tool complexity. Built with React 18+ and Vite, it focuses on local data storage and requires no server infrastructure.
 
 ## Quick Start
 
 ### Prerequisites
-- Node.js 16+ 
+- Node.js 16+
 - Modern web browser with localStorage support
 
-### Installation
+### Getting Started
 ```bash
-# Clone the repository
+# Clone and install
 git clone https://github.com/cousin-bubbles/gantt.git
 cd gantt
-
-# Install dependencies
 npm install
 
-# Start development server
-npm run dev
-```
+# Development
+npm run dev          # Start dev server at http://localhost:5173/
 
-### Build for Production
-```bash
-npm run build
+# Production
+npm run build        # Build optimized bundle
+npm run preview      # Preview built app at http://localhost:4173/
 ```
 
 ## Features
 
-### Current MVP Features
-- **Task Management**: Create, edit, and delete project tasks
-- **Timeline Visualization**: Visual Gantt chart with task positioning
-- **Local Persistence**: Automatic saving to browser localStorage
-- **Responsive Design**: Works on desktop and mobile devices
-- **Real-time Updates**: Changes reflect immediately across views
-
-### Core Components
-- React 18+ with Vite build system
-- Task model with title, start date, end date, and completion percentage
-- Browser-based local storage (no server required)
-- Basic Gantt timeline renderer
-
-## Documentation
-
-- **[Requirements](docs/requirements.md)** - Detailed functional and non-functional requirements
-- **[Roadmap](docs/roadmap.md)** - Project roadmap and future planning
-- **[Contributing](CONTRIBUTING.md)** - Guidelines for contributors
+- **Task Management**: Create, edit, and delete tasks with dates and completion tracking
+- **Timeline Visualization**: Interactive Gantt chart with real-time updates
+- **Local Persistence**: Automatic localStorage saving (no server required)
+- **Responsive Design**: Desktop and mobile compatible
+- **Fast Performance**: ~1 second builds, instant dev server startup
 
 ## Architecture
 
-### Technology Stack
-- **Frontend**: React 18+ with modern hooks
-- **Build System**: Vite for fast development and optimized builds
-- **Storage**: Browser localStorage for data persistence
-- **Styling**: CSS with responsive design principles
+**Technology Stack**: React 18+ • Vite • localStorage • CSS  
+**Browser Support**: Chrome 60+ • Firefox 55+ • Safari 12+ • Edge 79+
 
-### Project Structure
-```
-├── src/
-│   ├── components/       # React components
-│   ├── App.jsx          # Main application component
-│   ├── main.jsx         # Application entry point
-│   └── styles.css       # Global styles
-├── docs/                # Project documentation
-├── public/              # Static assets
-└── package.json         # Dependencies and scripts
-```
+**Key Files**:
+- `src/App.jsx` - Main application with task management
+- `src/components/Gantt.jsx` - Timeline visualization component
+- `docs/requirements.md` - Detailed specifications
+- `docs/roadmap.md` - Project roadmap and milestones
 
-## Browser Support
+## Documentation
 
-- Chrome 60+
-- Firefox 55+ 
-- Safari 12+
-- Edge 79+
+- **[Contributing Guide](CONTRIBUTING.md)** - Development workflow and standards
+- **[Requirements](docs/requirements.md)** - Functional and non-functional requirements  
+- **[Roadmap](docs/roadmap.md)** - Project milestones and future features
+- **[AI Coding Rules](AI_CODING_RULES.md)** - AI development best practices
+
+## Contributing
+
+We use structured requirement templates for consistency. Please:
+
+1. **Open issues** using our [requirement template](.github/ISSUE_TEMPLATE/requirement.md)
+2. **Follow guidelines** in [CONTRIBUTING.md](CONTRIBUTING.md)
+3. **Reference requirements** from [docs/requirements.md](docs/requirements.md) when applicable
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Support & Contributing
-
-For questions, feature requests, or bug reports, please open an issue using our [requirement template](.github/ISSUE_TEMPLATE/requirement.md).
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to this project.
+Licensed under the MIT License - see [LICENSE](LICENSE) for details.

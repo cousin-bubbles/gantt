@@ -1,185 +1,90 @@
 # Contributing to Simple Gantt
 
-Thank you for your interest in contributing to Simple Gantt! This document provides guidelines and information for contributors.
+Thank you for contributing! This guide covers our development workflow and standards.
 
-## Getting Started
+## Quick Setup
 
-### Development Setup
+```bash
+# Fork, clone, and setup
+git clone https://github.com/your-username/gantt.git
+cd gantt
+npm install
+npm run dev        # Verify at http://localhost:5173
+```
 
-1. **Fork and Clone**
-   ```bash
-   git clone https://github.com/your-username/gantt.git
-   cd gantt
-   ```
+## Workflow
 
-2. **Install Dependencies**
-   ```bash
-   npm install
-   ```
+### 1. Creating Issues
+- Use the [requirement template](.github/ISSUE_TEMPLATE/requirement.md)
+- Apply appropriate [labels](docs/requirements.md#labeling-scheme)
+- Reference related requirements from [docs/requirements.md](docs/requirements.md)
 
-3. **Start Development Server**
-   ```bash
-   npm run dev
-   ```
+### 2. Development Process
+```bash
+git checkout -b feature/descriptive-name
+# Make changes following code standards below
+# Write clear commit messages
+git commit -m "feat: add task deletion functionality"
+```
 
-4. **Verify Setup**
-   - Open http://localhost:5173 in your browser
-   - Ensure the application loads and basic functionality works
-
-## Development Workflow
-
-### Creating Issues
-
-We use structured requirement templates for consistency:
-
-1. **Use the Requirement Template**: Create issues using `.github/ISSUE_TEMPLATE/requirement.md`
-2. **Descriptive Titles**: Use clear, descriptive titles focused on the functionality or problem
-3. **Apply Labels**: Use our [labeling scheme](docs/requirements.md#labeling-scheme)
-4. **Link Dependencies**: Reference related requirements and blocking issues
-
-### Pull Request Process
-
-1. **Create Feature Branch**
-   ```bash
-   git checkout -b feature/descriptive-name
-   ```
-
-2. **Make Changes**
-   - Follow existing code patterns and conventions
-   - Write clear, focused commits
-   - Reference relevant requirement IDs in commit messages when applicable
-
-3. **Update Documentation**
-   - Update relevant documentation files
-   - Add or update tests if applicable
-   - Update requirement status in `docs/requirements.md` if major milestones are reached
-
-4. **Submit Pull Request**
-   - Use descriptive PR title focused on the changes made
-   - Link to related issues using "Closes #issue-number"
-   - Reference relevant requirement IDs in PR description when applicable
-   - Ensure CI checks pass
-   - Request review from maintainers
+### 3. Pull Requests
+- Use descriptive titles focused on changes made
+- Link related issues: "Closes #issue-number"
+- Update documentation and requirement status if applicable
+- Request maintainer review
 
 ## Code Standards
 
-### AI Coding Best Practices
+### AI Development
+Follow [AI_CODING_RULES.md](AI_CODING_RULES.md) for all AI-assisted development:
+- Responsible development practices
+- Code quality and readability standards  
+- Documentation requirements
+- Security and review processes
 
-All contributors must follow the documented AI coding best practices outlined in [AI_CODING_RULES.md](AI_CODING_RULES.md). Key requirements include:
-
-- **Responsible AI Development**: Ensure transparency, fairness, and privacy in all AI-assisted development
-- **Code Quality**: Follow simplicity-first approach with clear, readable code
-- **Documentation**: Document complex logic and AI-assisted decisions
-- **Security**: Protect user data and follow secure coding practices
-- **Review Process**: All AI-assisted code requires peer review
-
-### React/JavaScript Guidelines
-
+### React/JavaScript
 - Use modern React patterns (hooks, functional components)
-- Follow consistent naming conventions (camelCase for variables, PascalCase for components)
-- Write self-documenting code with clear variable and function names
-- Use ESLint configurations if available
-
-### File Organization
-
-- Keep components modular and focused on single responsibilities
-- Place reusable components in appropriate directories
-- Follow existing project structure patterns
+- Follow camelCase/PascalCase naming conventions
+- Write self-documenting code with clear names
+- Keep components modular and focused
 
 ### Commit Messages
-
-Use clear, descriptive commit messages:
+Use conventional format:
 ```
-feat: Add task creation functionality
+type(scope): concise description
 
-- Implement add task button and form handling
-- Update task list to display new tasks
-- Add localStorage persistence for new tasks
-- Relates to REQ-001 task management requirements
+Optional detailed explanation
+Relates to REQ-XXX (when applicable)
 ```
 
-## Documentation Standards
+## Documentation
 
-### Requirements Documentation
-
-When contributing requirements or design changes:
-
-- Follow the structure in `docs/requirements.md`
+### Requirements
+- Follow structure in [docs/requirements.md](docs/requirements.md)
 - Use RFC 2119 terminology (SHALL, SHOULD, MAY)
 - Include clear acceptance criteria
-- Update requirement status in docs/requirements.md when implementing features
+- Update requirement status when implementing features
 
-### Code Documentation
+### Code Comments
+- Comment complex logic only
+- Document component props and data structures
+- Update README.md for setup changes
 
-- Write clear inline comments for complex logic
-- Document component props and expected data structures
-- Update README.md if adding new dependencies or changing setup
-
-## Testing
-
-### Running Tests
+## Testing & Quality
 
 ```bash
-# Run existing tests (when available)
-npm test
-
-# Build verification
-npm run build
+npm run build     # Verify builds successfully
+npm run preview   # Test production build
 ```
 
-### Writing Tests
+Manual testing required - no formal test framework currently available.
 
-- Write tests for new functionality when test infrastructure exists
-- Focus on critical user paths and edge cases
-- Reference relevant requirement IDs in test descriptions for traceability when applicable
+## Labels & Support
 
-## Review Process
-
-### Code Review Guidelines
-
-- **Maintainability**: Code should be easy to understand and modify
-- **Functionality**: Changes should work as intended and not break existing features
-- **Documentation**: Updates should include relevant documentation changes
-- **Consistency**: Follow established patterns and conventions
-- **AI Coding Compliance**: Verify adherence to [AI_CODING_RULES.md](AI_CODING_RULES.md) for AI-assisted development
-
-### Approval Process
-
-1. All PRs require review from project maintainers
-2. Address feedback promptly and clearly
-3. Update documentation and tests as requested
-4. Ensure all CI checks pass before merge
-
-## Issue Labeling
-
-Use our comprehensive labeling scheme documented in [requirements.md](docs/requirements.md#labeling-scheme):
-
+Use our [labeling scheme](docs/requirements.md#labeling-scheme):
 - **Level**: `level:story`, `level:epic`, `level:goal`
 - **Type**: `req:type:functional`, `req:type:non-functional`
 - **Priority**: `priority:P1`, `priority:P2`, `priority:P3`
-- **Status**: `status:ready`, `status:in-progress`, `status:testing`, etc.
 - **Domain**: `domain:ui`, `domain:data`, `domain:timeline`
 
-## Questions and Support
-
-- **Questions**: Open a discussion or issue for clarification
-- **Bugs**: Use the issue template with detailed reproduction steps
-- **Feature Requests**: Use the requirement template with clear user stories
-
-## Code of Conduct
-
-We are committed to providing a welcoming and inclusive environment for all contributors. Please:
-
-- Be respectful and constructive in all interactions
-- Focus on what is best for the community and project
-- Show empathy towards other community members
-- Accept feedback gracefully and provide feedback constructively
-
-## Recognition
-
-Contributors will be recognized in:
-- Git commit history
-- Release notes for significant contributions
-- Project documentation where appropriate
-
-Thank you for contributing to Simple Gantt! Your efforts help make this project better for everyone.
+**Need Help?** Open an issue using our requirement template for questions, bugs, or feature requests.

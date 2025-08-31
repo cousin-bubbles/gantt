@@ -166,62 +166,27 @@ Author: Simple Gantt Team
 - **HLR (High-Level Requirement)**: Top-level business or technical requirements that define major system capabilities
 - **LLR (Low-Level Requirement)**: Detailed requirements that implement or decompose high-level requirements
 
-### Historical Aliases
-*This section maintains mapping for requirement IDs that existed before the strategy refactoring*
+### Management Guidelines
 
-| Previous Issue | Historical ID | Current Requirement ID | Notes |
-|---------------|---------------|----------------------|-------|
-| #7            | NFR-001       | NFR-001              | Performance requirement - issue title to be updated |
-| #9            | NFR-011       | NFR-011              | AI coding rules - issue title to be updated |
+**Requirement ID Assignment**: All IDs are centrally managed in this document only  
+**Issue Integration**: Reference requirement IDs in issue descriptions, not titles  
+**Implementation Tracking**: Use Implementation Links column for major code references  
+**Status Updates**: Update requirement status when implementation milestones are reached
 
-### Migration Plan
-**Implementation of New Requirement ID Strategy**
+### Best Practices
 
-1. **Documentation Updates** ✅
-   - Remove Issue and PR columns from traceability tables
-   - Add Level, Parent(s), and Implementation Links columns
-   - Update requirement definitions and workflows
-
-2. **Issue Management** (To be completed)
-   - Rename existing issues to remove requirement IDs from titles:
-     - Issue #7: Remove "[NFR-001]" prefix from title
-     - Issue #9: Remove "[NFR-011]" prefix from title
-   - Update issue template to remove ID assignment from title format
-   - Update issue template to reference requirement IDs in body only
-
-3. **Documentation Cleanup** (To be completed)
-   - Remove requirement ID references from CONTRIBUTING.md workflows
-   - Update all references to new strategy in project documentation
-
-### Common Pitfalls to Avoid
-**Important guidelines for maintainers and contributors:**
-
-1. **❌ DO NOT assign requirement IDs to GitHub issues**
-   - Issues are implementation tracking, not requirement definition
-   - Requirement IDs exist only in docs/requirements.md
-
-2. **❌ DO NOT include requirement IDs in issue titles**
-   - Use descriptive, user-focused titles instead
-   - Reference requirement IDs in issue body if needed
-
-3. **❌ DO NOT list issues or their statuses in documentation tables**
-   - Issues are transient; requirements are persistent
-   - Use Implementation Links column for optional references only
-
-4. **❌ DO NOT create duplicate requirement IDs**
-   - All IDs are managed centrally in docs/requirements.md
-   - Check existing IDs before assigning new ones
-
-5. **❌ DO NOT assume issue status equals requirement status**
-   - Multiple issues may implement one requirement
-   - One issue may touch multiple requirements
-   - Requirements status is managed independently in documentation
-
-**✅ Best Practices:**
+**✅ DO**:
 - Reference requirement IDs in issue descriptions when relevant
-- Update requirement status in docs/requirements.md when implementation milestones are reached
-- Use Implementation Links column sparingly for major code references (files, PRs)
-- Maintain parent/child relationships between HLRs and LLRs in documentation only
+- Update requirement status when milestones are reached
+- Use descriptive, user-focused issue titles
+- Manage all requirement IDs centrally in this document
+
+**❌ AVOID**:
+- Including requirement IDs in issue titles
+- Assigning requirement IDs to GitHub issues
+- Listing issues or their statuses in documentation tables
+- Creating duplicate requirement IDs
+- Assuming issue status equals requirement status
 
 ---
 
